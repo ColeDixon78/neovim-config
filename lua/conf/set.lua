@@ -1,0 +1,10 @@
+vim.opt.tabstop = 2
+vim.opt.title = true
+vim.opt.titlestring = [[Neovim - $t]]
+vim.opt.clipboard = "unnamedplus"
+vim.opt.autoindent = true
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.wrap = false
+vim.opt.relativenumber = true
+vim.opt.scrolloff = 8
