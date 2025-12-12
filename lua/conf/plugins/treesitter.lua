@@ -9,6 +9,7 @@ return {
             'lua',
             'cpp',
             'latex',
+            'supercollider',
             'markdown',
             'markdown_inline',
             'python',

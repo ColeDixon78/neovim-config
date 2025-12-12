@@ -10,7 +10,7 @@ return {
             svelte = { "eslint_d" },
             typescript = { "eslint_d" },
             javascript = { "eslint_d" },
-            cpp = { "cpplint" }
+            cpp = { "cpplint" },
         }
         vim.api.nvim_create_autocmd({ "BufWritePost" }, {
             callback = function()

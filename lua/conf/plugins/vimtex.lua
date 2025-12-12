@@ -14,7 +14,7 @@ return {
             vim.g.vimtex_compiler_method = "tectonic"
             vim.api.nvim_create_autocmd({ "BufWritePost" }, {
                 pattern = '*.tex',
-                command = "VimtexCompile"
+                command = "silent! VimtexCompileSS"
             })
         end,
     },

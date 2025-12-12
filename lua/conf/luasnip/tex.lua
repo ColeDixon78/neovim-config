@@ -2,11 +2,79 @@ local function math()
     return vim.api.nvim_eval('vimtex#syntax#in_mathzone()') == 1
 end
 return {
+    s({ trig = "init", snippetType = "snippet", desc = "Create initial boilerplate", wordTrig = true },
+        fmta(
+            [[
+            \documentclass{article}
+            \title{<>}
+            \author{Cole Dixon}
+            \begin{document}
+            \end{document}
+            ]],
+            { i(1, "title"), }
+        )
+    ),
+    s({ trig = "mm", snippetType = "snippet", desc = "math mode", wordTrig = true },
+        fmta(
+            [[ $<>$ ]],
+            { i(1, "text"), }
+        )
+    ),
+    s({ trig = "sss", snippetType = "snippet", desc = "subsubsection", wordTrig = true },
+        fmta(
+            [[ \subsubsection{<>} ]],
+            { i(1, "text"), }
+        )
+    ),
+    s({ trig = "ss", snippetType = "snippet", desc = "subsection", wordTrig = true },
+        fmta(
+            [[ \subsection{<>} ]],
+            { i(1, "text"), }
+        )
+    ),
+    s({ trig = "em", snippetType = "snippet", desc = "emphasis", wordTrig = true },
+        fmta(
+            [[ \emph{<>} ]],
+            { i(1, "text"), }
+        )
+    ),
+    s({ trig = "frac", snippetType = "autosnippet", desc = "fractions", wordTrig = true },
+        fmta(
+            [[ \frac{<>}{<>} ]],
+            { i(1, "1"), i(2, "2"), }
+        ),
+        { condition = math }
+    ),
+    s({ trig = "sum", snippetType = "autosnippet", desc = "summation", wordTrig = true },
+        fmta(
+            [[ \sum_{<>}^{<>} ]],
+            { i(1, "n=1"), i(2, "\\infty"), }
+        ),
+        { condition = math }
+    ),
+    s({ trig = "prod", snippetType = "autosnippet", desc = "big product", wordTrig = true },
+        fmta(
+            [[ \prod_{<>}^{<>} ]],
+            { i(1, "n=1"), i(2, "\\infty"), }
+        ),
+        { condition = math }
+    ),
+    s({ trig = "lq", snippetType = "autosnippet", desc = "less than equal", wordTrig = true },
+        { t("\\leq"), },
+        { condition = math }
+    ),
+    s({ trig = "gq", snippetType = "autosnippet", desc = "greater than equal", wordTrig = true },
+        { t("\\geq"), },
+        { condition = math }
+    ),
+    s({ trig = "ddd", snippetType = "autosnippet", desc = "dot dot dot ...", wordTrig = false },
+        { t("\\ldots{}"), }
+    ),
     s({ trig = "oo", snippetType = "autosnippet", desc = "infinity", wordTrig = false },
         { t("\\infty"), },
         { condition = math }
     ),
-    s({ trig = "rt", snippetType = "autosnippet", desc = "infinity", wordTrig = false },
+    s({ trig = "rt", snippetType = "autosnippet", desc = "square root", wordTrig = false },
         fmta(
             [[ \sqrt{<>} ]],
             { i(1, "x"), }
@@ -18,9 +86,10 @@ return {
     ),
     s({ trig = "\"", snippetType = "autosnippet", desc = "quotation marks" },
         fmta(
-            [[``<>'' ]],
+            [[\text{<>} ]],
             { i(1, "text"), }
-        )
+        ),
+        { condition = math }
     ),
     s({ trig = "fig", snippetType = "snippet", dscr = "A basic figure environment" },
         fmta(

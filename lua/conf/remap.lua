@@ -2,6 +2,27 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>")
 vim.keymap.set("n", "h", "*")
 vim.keymap.set("n", "<leader>o", "o<Esc>")
 vim.keymap.set("n", "<leader>O", "O<Esc>")
+vim.keymap.set("n", "yim",
+    function()
+        local col = vim.api.nvim_win_get_cursor(0)[2]
+        local char = vim.api.nvim_get_current_line():sub(col + 1, col + 1)
+        if char == '$' then
+            vim.cmd([[normal! lyt$]]);
+        else
+            vim.cmd([[silent! normal! T$yt$]]);
+        end
+    end
+)
+vim.keymap.set("n", "yam",
+    function()
+        local charUnderCursor = vim.fn.getregion(vim.fn.getpos('.'), vim.fn.getpos('.'));
+        if charUnderCursor == '$' then
+            vim.cmd([[normal! yf$]]);
+        else
+            vim.cmd([[silent! normal! F$yf$]]);
+        end
+    end
+)
 vim.keymap.set("n", "<leader>nh", "<cmd>noh<cr>")
 vim.keymap.set("n", "<leader>c", "<cmd>close<cr>")
 vim.keymap.set("n", "<leader>s", "<cmd>vsplit<cr>")

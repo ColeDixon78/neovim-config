@@ -6,13 +6,14 @@ return {
     config = function()
         require("luasnip.loaders.from_lua").lazy_load({ paths = "./lua/conf/luasnip/" })
         local ls = require("luasnip")
+        require 'luasnip'.add_snippets('supercollider', require 'scnvim.utils'.get_snippets())
         ls.setup({
             update_events = { "TextChanged", "TextChangedI" },
             enable_autosnippets = true,
             store_selection_keys = "<Tab>",
         })
         vim.keymap.set({ "i" }, "<C-h>", function() ls.expand() end, { silent = true, desc = "expand autocomplete" })
-        vim.keymap.set({ "i", "s" }, "<C-j>", function() ls.jump(1) end, { silent = true, desc = "next autocomplete" })
+        vim.keymap.set({ "i", "s" }, "<Tab>", function() ls.jump(1) end, { silent = true, desc = "next autocomplete" })
         vim.keymap.set({ "i", "s" }, "<C-k>", function() ls.jump(-1) end,
             { silent = true, desc = "previous autocomplete" })
         vim.keymap.set({ "i", "s" }, "<C-E>", function()
