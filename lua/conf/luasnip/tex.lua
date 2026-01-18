@@ -8,10 +8,20 @@ return {
             \documentclass{article}
             \title{<>}
             \author{Cole Dixon}
+            \usepackage{amssymb}
+            \usepackage{amsthm}
+            \usepackage{tikz}
+            \usepackage{amsmath}
             \begin{document}
             \end{document}
             ]],
             { i(1, "title"), }
+        )
+    ),
+    s({ trig = "bx", snippetType = "autosnippet", desc = "box", wordTrig = true },
+        fmta(
+            [[ \fbox{<>} ]],
+            { i(1, "text"), }
         )
     ),
     s({ trig = "mm", snippetType = "snippet", desc = "math mode", wordTrig = true },
@@ -82,7 +92,32 @@ return {
         { condition = math }
     ),
     s({ trig = ";a", snippetType = "autosnippet", desc = "alpha", wordTrig = false },
-        { t("\\alpha"), }
+        { t("\\alpha"), },
+        { condition = math }
+    ),
+    s({ trig = ";e", snippetType = "autosnippet", desc = "epsilon", wordTrig = false },
+        { t("\\epsilon"), },
+        { condition = math }
+    ),
+    s({ trig = "\\R", snippetType = "autosnippet", desc = "reals", wordTrig = false },
+        { t("\\mathbb{R}"), },
+        { condition = math }
+    ),
+    s({ trig = "\\N", snippetType = "autosnippet", desc = "natural", wordTrig = false },
+        { t("\\mathbb{N}"), },
+        { condition = math }
+    ),
+    s({ trig = "\\Z", snippetType = "autosnippet", desc = "integers", wordTrig = false },
+        { t("\\mathbb{Z}"), },
+        { condition = math }
+    ),
+    s({ trig = "\\Q", snippetType = "autosnippet", desc = "rationals", wordTrig = false },
+        { t("\\mathbb{Q}"), },
+        { condition = math }
+    ),
+    s({ trig = "\\I", snippetType = "autosnippet", desc = "irrationals", wordTrig = false },
+        { t("\\mathbb{I}"), },
+        { condition = math }
     ),
     s({ trig = "\"", snippetType = "autosnippet", desc = "quotation marks" },
         fmta(
