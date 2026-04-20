@@ -4,6 +4,7 @@ return {
     config = function()
         require("conform").setup({
             formatters_by_ft = {
+                c = { "astyle" },
                 lua = { "stylua" },
                 python = { "black", "reorder-python-imports" },
                 javascript = { "prettierd" },

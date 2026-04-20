@@ -13,7 +13,7 @@ return {
             store_selection_keys = "<Tab>",
         })
         vim.keymap.set({ "i" }, "<C-h>", function() ls.expand() end, { silent = true, desc = "expand autocomplete" })
-        vim.keymap.set({ "i", "s" }, "<Tab>", function() ls.jump(1) end, { silent = true, desc = "next autocomplete" })
+        -- vim.keymap.set({ "i", "s" }, "<Tab>", function() ls.jump(1) end, { silent = true, desc = "next autocomplete" })
         vim.keymap.set({ "i", "s" }, "<C-k>", function() ls.jump(-1) end,
             { silent = true, desc = "previous autocomplete" })
         vim.keymap.set({ "i", "s" }, "<C-E>", function()

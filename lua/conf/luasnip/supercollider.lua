@@ -1,11 +1,15 @@
 return {
+    s({ trig = "da2", snippetType = "autosnippet", desc = "Done Action Free Self", wordTrig = true },
+        { t("doneAction: Done.freeSelf") }
+    ),
     s({ trig = "sd", snippetType = "snippet", desc = "Create SynthDef", wordTrig = true },
         fmta(
             [[
             SynthDef.new(name:\<>, ugenGraphFunc:{
-                | out|
-                var source = SinOsc.ar([440,442]);
-                Out.ar(bus:out, channelsArray:source)
+                | out, freq = 440, pan = 0, amp = 1|
+                var source = SinOsc.ar(freq, amp);
+                var panned = Pan2.ar(source, pan);
+                Out.ar(bus:out, channelsArray:panned)
             }, rates:nil, prependArgs:nil, variants:nil, metadata:nil).add;
             ]],
             { i(1, "name"), }
