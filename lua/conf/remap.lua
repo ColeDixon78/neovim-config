@@ -1,5 +1,8 @@
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>")
-vim.keymap.set("n", "h", "*")
+vim.keymap.set("n", "h", "*N")
+vim.keymap.set("v", "h", [["hy:let @/=@h<CR>nN]])
+vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("v", "<leader>r", [["hy:%s/<C-r>h/<C-r>h/gI<Left><Left><left>]])
 vim.keymap.set("n", "<leader>o", "o<Esc>")
 vim.keymap.set("n", "<leader>O", "O<Esc>")
 vim.keymap.set("n", "yim",
