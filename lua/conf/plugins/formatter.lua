@@ -11,6 +11,7 @@ return {
                 typescript = { "prettierd" },
                 svelte = { "prettierd" },
                 tex = { "llf" },
+                zig = { "zigfmt" },
             },
             format_on_save = {
                 timeout_ms = 500,

@@ -18,9 +18,11 @@ return {
             'haskell',
             'svelte',
             'dockerfile',
-            'html' })
+            'html',
+            'zig',
+        })
         vim.api.nvim_create_autocmd('FileType', {
-            pattern = { 'svelte' },
+            pattern = { 'svelte', 'python', 'zig', 'cpp', 'lua', 'markdown', 'haskell' },
             callback = function() vim.treesitter.start() end,
         })
     end
